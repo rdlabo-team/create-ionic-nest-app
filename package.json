@@ -7,7 +7,7 @@
     "api": "cd api && npm run start",
     "app": "cd app && npm run start",
     "build:api": "cd api && npm run start:prod",
-    "build:app": "cd api && npm run build && cd ../app && npm run prod",
+    "build:app": "cd api && npm run build && cd ../app && npm run build -- --prod",
     "format": "npm run format:app && npm run format:api",
     "format:app": "prettier --parser typescript --write \"./app/src/**/*.ts\" &&  prettier --parser angular --write \"./app/src/**/*.html\"",
     "format:api": "prettier --write \"./api/src/**/*.ts\" \"./api/test/**/*.ts\"",
