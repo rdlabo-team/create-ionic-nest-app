@@ -1,0 +1,60 @@
+{
+  "name": "create-ionic-nest-app",
+  "version": "1.0.0",
+  "description": "Simple create app template for Ionic and NestJS",
+  "main": "index.js",
+  "scripts": {
+    "api": "cd api && npm run start",
+    "app": "cd apps && npm run start",
+    "build:api": "cd api && npm run start:prod",
+    "build:app": "cd api && npm run build && cd ../apps && npm run prod",
+    "format": "npm run format:apps && npm run format:api",
+    "format:apps": "prettier --parser typescript --write \"./apps/src/**/*.ts\" &&  prettier --parser angular --write \"./apps/src/**/*.html\"",
+    "format:api": "prettier --write \"./api/src/**/*.ts\" \"./api/test/**/*.ts\"",
+    "release": "np --no-publish --yolo",
+    "lint:fix": "cd apps && npm run lint && cd ../api && npm run lint",
+    "install": "lerna bootstrap",
+    "create:app": "ionic start app --type=angular && rm -rf app/.git",
+    "create:api": "nest new api && rm -rf app/.api",
+    "create:api:sls": "git clone https://github.com/rdlabo-team/serverless-nestjs api"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --parser typescript --write",
+      "git add"
+    ],
+    "*.html": [
+      "prettier --parser angular --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdlabo-team/create-ionic-nest-app.git"
+  },
+  "keywords": [
+    "Ionic",
+    "NestJS",
+    "Capacitor",
+    "Angular"
+  ],
+  "author": "Masahiko Sakakibara <sakakibara@rdlabo.jp>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rdlabo-team/create-ionic-nest-app/issues"
+  },
+  "homepage": "https://github.com/rdlabo-team/create-ionic-nest-app#readme",
+  "devDependencies": {
+    "husky": "^4.3.0",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.5.2",
+    "np": "^7.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.2.1"
+  }
+}

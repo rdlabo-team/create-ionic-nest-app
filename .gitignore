@@ -1,0 +1,14 @@
+.idea/
+npm-debug.log
+debug.log
+
+# Genelate Files
+node_modules/
+dist/
+www/
+scripts/appflow/*.js
+/ios/
+/android/
+
+# Serverless
+.serverless/
