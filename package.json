@@ -16,7 +16,7 @@
     "install": "lerna bootstrap",
     "create:app": "ionic start app --type=angular && rm -rf app/.git",
     "create:api": "nest new api && rm -rf app/.api",
-    "create:api:sls": "git clone https://github.com/rdlabo-team/serverless-nestjs api"
+    "create:api:sls": "git clone https://github.com/rdlabo-team/serverless-nestjs api && rm -rf app/.api"
   },
   "lint-staged": {
     "*.ts": [
